@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    img {max-width: 100%;}
+    li {
+        list-style: none;
+    }
+    .slider_wrap {
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+
+    }
+    .slider_wrap .images {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        transition: all .3s;
+    }
+    .slider_wrap ul li {
+        width: 500px;
+        float: left;
+    }
+    .btns {
+        position: absolute;
+        left: 0;
+        top: 520px;
+    }
+    .btns span {display: inline-block; padding: 2px; background: #000; color: #fff; cursor: pointer;}
+</style>
+<body>
+    <div class="slider_wrap">
+        <ul class="images">
+            <li class="img"><img src="./images/IMG_0442.jpeg" alt=""></li>
+            <li class="img"><img src="./images/meee.png" alt=""></li>
+            <li class="img"><img src="./images/IMG_0442.jpeg" alt=""></li>
+            <li class="img"><img src="./images/meee.png" alt=""></li>
+        </ul>
+    </div>
+    <div class="btns">
+        <span class="prev">prev</span>
+        <span class="next">next</span>
+    </div>
+</body>
+<script>
+    const slides = document.querySelector('.images');
+    const slideImg = document.querySelectorAll('.images li');
+    let slideIndx = 0;
+    const imgLengh = slideImg.length
+    
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const slideWidth = 500;
+
+    slides.style.width = slideWidth * imgLengh + 'px';
+
+    function moveSlide(num) {
+        slides.style.left = -num * slideWidth + 'px';
+        slideIndx = num;
+    }
+    next.addEventListener('click',function(){
+        if( slideIndx+1 < imgLengh) {
+            moveSlide(slideIndx+1);
+
+            console.log(slideIndx);
+            console.log(imgLengh);
+        }
+    });
+
+    prev.addEventListener('click',function(){   
+        if( slideIndx !== 0) {
+            moveSlide(slideIndx-1);
+            
+            console.log(slideIndx);
+            console.log(imgLengh);
+        }
+    });
+    
+</script>
+</html>

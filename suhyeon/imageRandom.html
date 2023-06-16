@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 랜덤</title>
+</head>
+<body>
+    <div class="img_area">
+        <img class="img" src="/images/player1.jpeg" alt="">
+    </div>
+</body>
+<script>
+    const imgArray = ['player1.jpeg','player2.jpeg','player3.jpeg','player4.jpeg','player5.jpeg','player6.jpeg'];
+    const randomClick = document.querySelector('.img_area');
+    const images = document.querySelector('.img');
+
+    function random () {
+        const randomPrint = imgArray[Math.floor( Math.random() * imgArray.length )];
+        images.src = `images/${randomPrint}`;
+        console.log(`${randomPrint}`);
+    }
+    
+    randomClick.addEventListener('click',random);
+</script>
+</html>

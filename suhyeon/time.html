@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="time_wrap">
+        <p id="clock"></p>
+    </div>
+</body>
+<script>
+    function getTime () {
+        const clock = document.getElementById('clock');
+        const date = new Date();
+        
+
+        const hours =  date.getHours();
+        const minute = date.getMinutes();
+        const second = date.getSeconds();
+
+        clock.innerHTML = `${hours} : ${minute} : ${second}`;
+    }
+    getTime();
+    setInterval(getTime, 1000);
+
+</script>
+</html>
