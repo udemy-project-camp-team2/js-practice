@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        margin-bottom: 10px;
+    }
+    .result {
+        color: red;
+        width: 50px;
+        height: 20px;
+    }
+</style>
+<body>
+    <div class="add_calculator">
+        <p>더하기</p>
+        <input type="number" name="" id="add_number1">
+        <input type="number" name="" id="add_number2">
+        <input type="button" value="=" onclick="add();">
+        <br>
+        <br>
+        <p class="result">
+            result : <span id="add_result" ></span>
+        </p>  
+    </div>
+    <div class="minus_calculator">
+        <p>빼기</p>
+        <input type="number" name="" id="minus_number1">
+        <input type="number" name="" id="minus_number2">
+        <input type="button" value="=" onclick="minus();">
+        <br>
+        <br>
+        
+        <p class="result">
+            result : <span id="minus_result" ></span>
+        </p>  
+    </div>
+    <div class="multi_calculator">
+        <p>곱하기</p>
+        <input type="number" name="" id="multi_number1">
+        <input type="number" name="" id="multi_number2">
+        <input type="button" value="=" onclick="multi();">
+        <br>
+        <br>
+        
+        <p class="result">
+            result : <span id="multi_result" ></span>
+        </p>  
+    </div>
+    <div class="division_calculator">
+        <p>나누기</p>
+        <input type="number" name="" id="division_number1">
+        <input type="number" name="" id="division_number2">
+        <input type="button" value="=" onclick="division();">
+        <br>
+        <br>
+        
+        <p class="result">
+            result : <span id="division_result" ></span>
+        </p>  
+    </div>
+    <script>
+        function add() {
+            const number1 = document.getElementById('add_number1').value;
+            const number2 = document.getElementById('add_number2').value;
+
+            const result = parseInt(number1) + parseInt(number2);
+            document.getElementById('add_result').innerHTML = result;
+        }
+        
+        function minus() {
+            const number1 = document.getElementById('minus_number1').value;
+            const number2 = document.getElementById('minus_number2').value;
+
+            const result = parseInt(number1) - parseInt(number2);
+            document.getElementById('minus_result').innerHTML = result;
+        }
+
+        function multi() {
+            const number1 = document.getElementById('multi_number1').value;
+            const number2 = document.getElementById('multi_number2').value;
+
+            const result = parseInt(number1) * parseInt(number2);
+            document.getElementById('multi_result').innerHTML = result;
+        }
+
+        function division() {
+            const number1 = document.getElementById('division_number1').value;
+            const number2 = document.getElementById('division_number2').value;
+
+            const result = parseInt(number1) / parseInt(number2);
+            document.getElementById('division_result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
