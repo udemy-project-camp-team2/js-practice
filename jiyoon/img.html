@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img class="random_img" src="./image/camp.jpg" alt="">
+  <br>
+  <button class="btn">Random</button>
+</body>
+<script>
+  const array = ["company.jpg", "front.jpg", "study.jpg", "full_stack.jpg", "publisher.jpg"];
+  const randomButton = document.querySelector(".btn");
+  const loginImg = document.querySelector(".random_img");
+
+  function changeImagesHandler() {
+    const mainVisual = array[Math.floor(Math.random() * array.length)];
+    loginImg.src = `./image/${mainVisual}`;
+  }
+
+  randomButton.addEventListener("click", changeImagesHandler);
+</script>
+
+</html>

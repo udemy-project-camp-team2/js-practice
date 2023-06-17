@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide</title>
+  <style>
+    body {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .wrap {
+      overflow: hidden;
+    }
+
+    .slide {
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .slide_box {
+      width: 800px;
+      height: 300px;
+      float: left;
+    }
+
+    .slide_box:nth-child(1) {
+      background-color: tomato;
+    }
+
+    .slide_box:nth-child(2) {
+      background-color: gold;
+    }
+
+    .slide_box:nth-child(3) {
+      background-color: palevioletred;
+    }
+
+    .slide_box:nth-child(4) {
+      background-color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="slide">
+      <div class="slide_box"></div>
+      <div class="slide_box"></div>
+      <div class="slide_box"></div>
+      <div class="slide_box"></div>
+    </div>
+    <div id="btn">
+      <button type="button" class="prev">&lt;</button>
+      <button type="button" class="next">&gt;</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  window.onload = function () {
+    const slideList = document.querySelector(".slide")
+    const slide_box = document.querySelectorAll('.slide_box');
+    const move = document.querySelector('.btn');
+
+    let currentIdx = 0;
+    let translate = 0;
+    const btnPrev = document.querySelector(".prev"),
+      btnNext = document.querySelector(".next");
+
+    const width = slide_box[0].clientWidth;
+    const sliderWidth = width * slide_box.length;
+    slideList.style.width = `${sliderWidth}px`;
+
+
+    btnNext.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (currentIdx !== slide_box.length - 1) {
+        translate -= width;
+        slideList.style.transform = `translateX(${translate}px)`;
+        currentIdx += 1;
+      }
+    });
+
+    btnPrev.addEventListener('click', function (e) {
+      if (currentIdx !== 0) {
+        translate += width;
+        slideList.style.transform = `translateX(${translate}px)`;
+        currentIdx -= 1;
+      }
+    });
+  }
+</script>
+
+</html>
